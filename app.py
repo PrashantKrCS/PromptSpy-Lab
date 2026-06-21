@@ -4,12 +4,13 @@ from flask import Flask
 from flask import render_template 
 
 from simulation import CampaignSimulator 
-from telemetry import Telemetry 
+from telemetry import Telemetry
+from conversations import get_conversation
 
 app = Flask(__name__) 
 
 telemetry = Telemetry() 
-simulator = CampaignSimulator() 
+simulator = CampaignSimulator()
 
 @app.route("/") 
 def dashboard(): 
@@ -17,13 +18,16 @@ def dashboard():
         personas = json.load(f) 
     persona = personas[0] 
     
-    campaign = simulator.generate_campaign(persona) 
+    campaign = simulator.generate_campaign(persona)
+
+    conversation = get_conversation()
     
     return render_template( 
         "dashboard.html", 
          persona=persona, 
          campaign=campaign, 
-         telemetry=telemetry 
+         telemetry=telemetry,
+         conversation=conversation
      ) 
    
 @app.route("/open") 
