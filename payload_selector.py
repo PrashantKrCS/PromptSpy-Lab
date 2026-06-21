@@ -29,13 +29,13 @@ def select_payload(persona, theme):
     Chooses a simulated payload based on theme. 
     """ 
 
-if "Conference" in theme:
-    return PAYLOADS[0]
+    if "Conference" in theme:
+        return PAYLOADS[0]
     
-if "Training" in theme:
-    return PAYLOADS[1]
+    if "Training" in theme:
+        return PAYLOADS[1]
     
-if "Research" in theme:
-    return PAYLOADS[2]
+    if "Research" in theme:
+        return PAYLOADS[2]
 
-return random.choice(PAYLOADS)
+    return random.choice(PAYLOADS)
