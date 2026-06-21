@@ -8,6 +8,7 @@ from telemetry import Telemetry
 from conversations import get_conversation
 from personas import generate_persona
 from personas import generate_email
+from payload_selector import select_payload
 
 app = Flask(__name__) 
 
@@ -23,6 +24,12 @@ def dashboard():
     persona = generate_persona()
 
     campaign = generate_email(persona)
+    payload = select_payload(
+    persona,
+    campaign["theme"]
+)
+
+campaign["payload"] = payload
     
     #campaign = simulator.generate_campaign(persona)
 
