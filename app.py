@@ -6,6 +6,8 @@ from flask import render_template
 from simulation import CampaignSimulator 
 from telemetry import Telemetry
 from conversations import get_conversation
+from personas import generate_persona
+from personas import generate_email
 
 app = Flask(__name__) 
 
@@ -14,11 +16,15 @@ simulator = CampaignSimulator()
 
 @app.route("/") 
 def dashboard(): 
-    with open("personas.json") as f: 
-        personas = json.load(f) 
-    persona = personas[0] 
+    #with open("personas.json") as f: 
+        #personas = json.load(f) 
+    #persona = personas[0] 
+
+    persona = generate_persona()
+
+    campaign = generate_email(persona)
     
-    campaign = simulator.generate_campaign(persona)
+    #campaign = simulator.generate_campaign(persona)
 
     conversation = get_conversation()
     
