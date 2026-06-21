@@ -10,6 +10,46 @@
 
 <body class="bg-light">
 
+<div class="container mt-4">
+
+    <div class="alert alert-warning">
+        <strong>Security Research Simulation</strong><br>
+        No credentials, emails, OAuth tokens, or external communications are used.
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-6">
+            <div class="card mb-3">
+                <div class="card-header">Synthetic Persona</div>
+                <div class="card-body">
+                    <h5>{{ persona.name }}</h5>
+                    <p>{{ persona.role }}</p>
+                    <p>{{ persona.interest }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card mb-3">
+                <div class="card-header">Selected Theme</div>
+                <div class="card-body">
+                    {{ campaign.theme }}
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="card">
+        <div class="card-header">Email Preview</div>
+        <div class="card-body">
+            <pre>{{ campaign.email }}</pre>
+        </div>
+    </div>
+
+</div>
+
 <div class="card mt-3">
     <div class="card-header">
         Simulated Conversation
@@ -51,46 +91,6 @@
         </a> 
         </div> 
     </div>
-
-<div class="container mt-4">
-
-    <div class="alert alert-warning">
-        <strong>Security Research Simulation</strong><br>
-        No credentials, emails, OAuth tokens, or external communications are used.
-    </div>
-
-    <div class="row">
-
-        <div class="col-md-6">
-            <div class="card mb-3">
-                <div class="card-header">Synthetic Persona</div>
-                <div class="card-body">
-                    <h5>{{ persona.name }}</h5>
-                    <p>{{ persona.role }}</p>
-                    <p>{{ persona.interest }}</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6">
-            <div class="card mb-3">
-                <div class="card-header">Selected Theme</div>
-                <div class="card-body">
-                    {{ campaign.theme }}
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    <div class="card">
-        <div class="card-header">Email Preview</div>
-        <div class="card-body">
-            <pre>{{ campaign.email }}</pre>
-        </div>
-    </div>
-
-</div>
 
 </body>
 </html>
