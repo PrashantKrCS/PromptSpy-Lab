@@ -2,7 +2,7 @@ import random
 
 from templates import PRETEXTS
 from templates import EMAIL_TEMPLATE
-
+from payload_selector import select_payload
 
 class CampaignSimulator:
 
@@ -14,4 +14,6 @@ class CampaignSimulator:
             theme=theme, name=persona["name"], interest=persona["interest"]
         )
 
-        return {"theme": theme, "email": email}
+        payload = select_payload(persona, theme)
+
+        return {"theme": theme, "email": email, "payload": payload}
