@@ -15,32 +15,29 @@ app = Flask(__name__)
 telemetry = Telemetry() 
 simulator = CampaignSimulator()
 
-@app.route("/") 
-def dashboard(): 
-    #with open("personas.json") as f: 
-        #personas = json.load(f) 
-    #persona = personas[0] 
+@app.route("/")
+def dashboard():
 
-    conversation = get_conversation()
     persona = generate_persona()
 
     campaign = generate_email(persona)
-    payload = select_payload(
-    persona,
-    campaign["theme"]
-)
 
-campaign["payload"] = payload
-    
-    #campaign = simulator.generate_campaign(persona)
-    
-    return render_template( 
-        "dashboard.html", 
-         persona=persona, 
-         campaign=campaign, 
-         telemetry=telemetry,
-         conversation=conversation
-     )
+    payload = select_payload(
+        persona,
+        campaign["theme"]
+    )
+
+    campaign["payload"] = payload
+
+    conversation = get_conversation()
+
+    return render_template(
+        "dashboard.html",
+        persona=persona,
+        campaign=campaign,
+        telemetry=telemetry,
+        conversation=conversation
+    )
 
 @app.route("/payload/sharepoint")
 def payload_sharepoint():
