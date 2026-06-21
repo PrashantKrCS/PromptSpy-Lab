@@ -9,12 +9,9 @@ class CampaignSimulator:
     def generate_campaign(self, persona):
 
         theme = random.choice(PRETEXTS)
+
         email = EMAIL_TEMPLATE.format(
-            theme=theme,
-            name=persona["name"],
-            interest=persona["interest"]
+            theme=theme, name=persona["name"], interest=persona["interest"]
         )
-        return {
-            "theme": theme,
-            "email": email
-        }
+
+        return {"theme": theme, "email": email}
