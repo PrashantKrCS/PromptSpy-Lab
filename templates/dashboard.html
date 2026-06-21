@@ -10,6 +10,32 @@
 
 <body class="bg-light">
 
+<div class="card mt-3">
+    <div class="card-header">
+        Simulated Conversation
+    </div>
+
+    <div class="card-body conversation-box">
+
+        {% for item in conversation %}
+
+            {% if item.speaker == "User" %}
+                <div class="user-message">
+                    <strong>{{ item.speaker }}</strong><br>
+                    {{ item.message }}
+                </div>
+            {% else %}
+                <div class="agent-message">
+                    <strong>{{ item.speaker }}</strong><br>
+                    {{ item.message }}
+                </div>
+            {% endif %}
+
+        {% endfor %}
+
+    </div>
+</div>
+
 <div class="container mt-4">
 
     <div class="alert alert-warning">
