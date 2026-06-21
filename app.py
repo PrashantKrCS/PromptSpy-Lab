@@ -29,21 +29,37 @@ def dashboard():
          telemetry=telemetry,
          conversation=conversation
      ) 
-   
-@app.route("/open") 
-def open_email(): 
-    telemetry.opens += 1 
-    return "Email Opened (Simulation)" 
+
+@app.route("/payload/sharepoint")
+def payload_sharepoint():
+    return render_template("payload_sharepoint.html")
+
+@app.route("/payload/oauth")
+def payload_oauth():
+    return render_template("payload_oauth.html")
     
-@app.route("/click") 
-def click_link(): 
-    telemetry.clicks += 1 
-    return "Link Clicked (Simulation)" 
+@app.route("/payload/extension")
+def payload_extension():
+    return render_template("payload_extension.html")
     
-@app.route("/reply") 
-def reply(): 
-    telemetry.replies += 1 
-    return "Reply Recorded (Simulation)" 
+@app.route("/payload/mfa")
+def payload_mfa():
+    return render_template("payload_mfa.html")
+
+@app.route("/open")
+def open_email():
+    telemetry.opens += 1
+    return "Email Opened (Simulation)"
+    
+@app.route("/click")
+def click_link():
+    telemetry.clicks += 1
+    return "Link Clicked (Simulation)"
+    
+@app.route("/reply")
+def reply():
+    telemetry.replies += 1
+    return "Reply Recorded (Simulation)"
     
 if __name__ == "__main__": 
     app.run(debug=True)
