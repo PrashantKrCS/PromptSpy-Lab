@@ -21,6 +21,7 @@ def dashboard():
         #personas = json.load(f) 
     #persona = personas[0] 
 
+    conversation = get_conversation()
     persona = generate_persona()
 
     campaign = generate_email(persona)
@@ -32,8 +33,6 @@ def dashboard():
 campaign["payload"] = payload
     
     #campaign = simulator.generate_campaign(persona)
-
-    conversation = get_conversation()
     
     return render_template( 
         "dashboard.html", 
