@@ -36,6 +36,22 @@
     </div>
 </div>
 
+<div class="card mt-3"> 
+    <div class="card-header"> 
+        Selected Simulation Payload 
+    </div> 
+    
+    <div class="card-body"> 
+    
+        <h5>{{ campaign.payload.name }}</h5> 
+        
+        <p>{{ campaign.payload.description }}</p> 
+        <a href="{{ campaign.payload.route }}" 
+            class="btn btn-primary"> Launch Simulation 
+        </a> 
+        </div> 
+    </div>
+
 <div class="container mt-4">
 
     <div class="alert alert-warning">
