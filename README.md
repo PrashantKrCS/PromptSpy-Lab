@@ -1,0 +1,1 @@
+This project demonstrates how an AI-assisted social engineering campaign might be modeled for awareness training and conference demonstrations. Features: - Synthetic personas - Pretext generation - Dynamic email preview generation - Simulated payload selection - Simulated engagement metrics - Detection dashboard
