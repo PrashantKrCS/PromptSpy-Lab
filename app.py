@@ -28,7 +28,17 @@ def dashboard():
          campaign=campaign, 
          telemetry=telemetry,
          conversation=conversation
-     ) 
+     )
+    
+@app.route("/telemetry") 
+def telemetry_dashboard(): 
+    
+    return { 
+        "opens": telemetry.opens, 
+        "clicks": telemetry.clicks, 
+        "replies": telemetry.replies, 
+        "engagement_score": telemetry.score() 
+    }
 
 @app.route("/payload/sharepoint")
 def payload_sharepoint():
