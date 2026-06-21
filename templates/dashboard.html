@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Agentic Social Engineering Simulator</h1>
+
+<h2>Persona</h2>
+
+<p>
+{{ persona.name }}<br>
+{{ persona.role }}<br>
+{{ persona.interest }}
+</p>
+
+<h2>Selected Theme</h2>
+
+<p>{{ campaign.theme }}</p>
+
+<h2>Email Preview</h2>
+
+<pre>{{ campaign.email }}</pre>
+
+<h2>Telemetry</h2>
+
+<p>
+Opens: {{ telemetry.opens }}<br>
+Clicks: {{ telemetry.clicks }}<br>
+Replies: {{ telemetry.replies }}<br>
+Score: {{ telemetry.engagement_score() }}
+</p>
+
+<a href="/open">Simulate Open</a><br>
+<a href="/click">Simulate Click</a><br>
+<a href="/reply">Simulate Reply</a>
+
+</body>
+</html>
