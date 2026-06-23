@@ -90,7 +90,7 @@ def generate_email(persona):
     template = random.choice(EMAIL_TEMPLATES)
 
     #theme = random.choice(THEMES)
-    theme = memory["preferred theme"]
+    theme = memory["preferred_theme"]
 
     return {
         "theme": theme,
