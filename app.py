@@ -55,6 +55,16 @@ def payload_extension():
 def payload_mfa():
     return render_template("payload_mfa.html")
 
+@app.route("/poison-memory")
+def poison_memory():
+
+    memory = simulate_memory_poisoning()
+
+    return render_template(
+        "memory_poisoned.html",
+        memory=memory
+    )
+
 @app.route("/open")
 def open_email():
     telemetry.opens += 1
