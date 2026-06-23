@@ -66,6 +66,7 @@ def payload_mfa():
 #        memory=memory
 #    )
 
+#Memory Poisoning
 @app.route("/poison-memory")
 def poison_memory():
 
@@ -75,6 +76,13 @@ def poison_memory():
     <h2>Memory Poisoned</h2>
     <a href='/'>Return To Dashboard</a>
     """
+#Reset Memory
+@app.route("/reset-memory")
+def reset_memory_route():
+
+    reset_memory()
+
+    return "<h2>Memory Reset</h2>"
 
 @app.route("/open")
 def open_email():
