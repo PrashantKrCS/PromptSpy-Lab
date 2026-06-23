@@ -1,4 +1,5 @@
 import random
+from memory import load_memory
 
 PERSONAS = [
     {
@@ -84,29 +85,40 @@ def generate_persona():
 
 
 def generate_email(persona):
+
+    memory = load_memory()
     template = random.choice(EMAIL_TEMPLATES)
 
-    theme = random.choice(THEMES)
+    #theme = random.choice(THEMES)
+    theme = memory["preferred theme"]
 
     return {
         "theme": theme,
-        "email": template.format(
-            name=persona["name"],
-            role=persona["role"],
-            interest=persona["interest"],
-            theme=theme
-        )
-    }
+        "memory_status": memory["memory_status"],
+        "email":  f"""
+Subject: Updated {theme}
+
+Hi {persona['name']},
+
+Based on your interest in {persona['interest']},
+this content was generated using agent memory.
+
+Memory State:
+{memory['memory_status']}
+
+Regards,
+Research Team
+"""
 
 
-if __name__ == "__main__":
-
-    persona = generate_persona()
-
-    campaign = generate_email(persona)
-
-    print("Persona")
-    print(persona)
-
-    print("\nGenerated Email")
-    print(campaign["email"])
+#if __name__ == "__main__":
+#
+#    persona = generate_persona()
+#
+#    campaign = generate_email(persona)
+#
+#    print("Persona")
+#    print(persona)
+#
+#   print("\nGenerated Email")
+#    print(campaign["email"])
