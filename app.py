@@ -9,6 +9,7 @@ from conversations import get_conversation
 from personas import generate_persona
 from personas import generate_email
 from payload_selector import select_payload
+from memory import simulate_memory_poisoning
 
 app = Flask(__name__) 
 
