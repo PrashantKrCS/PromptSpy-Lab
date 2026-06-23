@@ -16,3 +16,12 @@ def simulate_memory_poisoning():
     memory["memory_status"] = "poisoned" 
     save_memory(memory) 
     return memory
+
+def reset_memory():
+
+    memory = {
+        "preferred_theme": "Conference Materials"
+        "preferred_payload": "Mock Sharepoint"
+        "memory_status": "clean"
+    }
+    save_memory(memory)
