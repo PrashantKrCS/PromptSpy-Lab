@@ -10,6 +10,7 @@ from personas import generate_persona
 from personas import generate_email
 from payload_selector import select_payload
 from memory import simulate_memory_poisoning
+from memory import reset_memory
 
 app = Flask(__name__) 
 
